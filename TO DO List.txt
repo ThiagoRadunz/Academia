@@ -1,0 +1,148 @@
+btnVoltar no formEditDeleteCategoria - Precisa clicar duas vezes para ele fechar
+
+Analisar colocar default 1 nas colunas ativo
+
+melhorar CLIENTEDAL UPDATE MSG ERROR CONTAINS
+UPDATE CLIENTES SET RG = '12345123451234512345' WHERE ID = 1
+E INATIVATOR RESPOSTA FALSE TBM (UC_USUARIOS ESTA ERRADO)
+
+
+
+
+
+BOTAO FECHAR DO FORMUPADTECLIENTE "NAO SEI COMO FECHAR O FORMUPDATE E FORMLISTAR AO MESMO TEMPO"
+
+
+@"SELECT I.ID,
+                                           P.,
+                                           C.ID,
+                                           M.NOME,
+                                           P.QTDD_AULA_SEMANA, 
+                                           P.QTDD_MES, 
+                                           P.VALOR, 
+                                           L.DATA_ADESAO_CONTRATO,
+                                           L.DATA_TERMINO_CONTRATO,
+                                           F.DESCRICAO,
+                                          
+                                    FROM INSTRUTORES I INNER JOIN
+                                         CLIENTES C AND 
+                                         PLANOS P AND
+                                         CATEGORIAS M AND 
+                                         PLANOS_INSTRUTOR_CLIENTE L AND
+                                         FORMAS_PAGAMENTO F 
+                                                    ON
+                                           I.USUARIOID = U.ID";
+
+
+FormMenuUsuario>Funcionarios >
+
+Listar todos
+Instrutores
+Atendentes * CRUD COMPLETO
+
+SELECT ATENDENTE.ID IDAtendente,
+       ATENDENTE.USUARIOID UsuarioID,
+       USUARIO.NOME Nome,
+       USUARIO.EMAIL Email,
+       USUARIO.FUNCAO Funcao,
+       ATENDENTE.FONE TelefoneCelular,
+       ATENDENTE.CPF CPF,
+       ATENDENTE.DATA_NASCIMENTO DataNascimento,
+       ATENDENTE.RG RG,
+       ATENDENTE.ESTADO Estado,
+       ATENDENTE.CIDADE Cidade,
+       ATENDENTE.BAIRRO Bairro,
+       ATENDENTE.RUA Rua,
+       ATENDENTE.NUMERO Numero,
+       ATENDENTE.SALARIO Salario,
+       ATENDENTE.COMISSAO Comissao,
+       ATENDENTE.ATIVO Ativo
+  FROM ATENDENTES ATENDENTE
+  JOIN USUARIOS USUARIO
+    ON ATENDENTE.USUARIOID = USUARIO.ID
+ WHERE UPPER(NOME) LIKE UPPER('C%')
+
+BORDA AZUL
+FOCUS 1 TXT BOX
+add pic a cliente obrigatoriamente (tela add cliente)
+update de senhas (instrutor, atendente e administrador)
+
+[Browsable(false)]
+        public int IDAtendente { get; set; }
+        public Usuario Usuario { get; set; }
+        [Browsable(false)]
+        public int IDUsuario { get; set; }
+        public string TelefoneCelular { get; set; }
+        public string CPF { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string RG { get; set; }
+        public string Estado { get; set; }
+        public string Cidade { get; set; }
+        public string Bairro { get; set; }
+        public string Rua { get; set; }
+        public int Numero { get; set; }
+        public double Salario { get; set; }
+        public double Comissao { get; set; }
+        [Browsable(false)]
+        public bool Ativo { get; set; }
+
+        private void AtualizarGridAtivos()
+        {
+            DataResponse<Cliente> response = clienteBLL.GetAllAtives();
+            if (response.Success)
+            {
+                this.dgvClientes.DataSource = response.Data;
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
+        }
+        private void AtualizarGridInativos()
+        {
+            DataResponse<Cliente> response = clienteBLL.GetAllInatives();
+            if (response.Success)
+            {
+                this.dgvClientes.DataSource = response.Data;
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
+        }
+
+== ATENDENTE ==        ==INSTRUTOR==
+
+ xFuncionarios    x                      
+ xconsultar todos x
+x Instrutores x
+x atendentes x
+
+
+Clientes :  x
+consultar clientes x
+novo cliente x
+
+Planos
+consultar planos 
+contratados
+categorias
+
+Produtis x
+consultar prod x
+novo prod x
+entrada prod x
+venda prod x
+
+Estoque x
+nada x
+
+Financeiro
+x formas de pagamente x
+x folha de pagamento x
+controle de venda de produtos x
+x controle de vendas de planos
+
+arnold@arnoldhealthclub.com
+instrutorlucas@arnoldhealthclub.com
+recepcaoeduardo@arnoldhealthclub.com
